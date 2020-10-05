@@ -1,6 +1,6 @@
 import React  from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'weather-icons/css/weather-icons.css';
+// import 'weather-icons/css/weather-icons.css';
 import './App.css';
 import Weather from './app_componet/weather.component';
 import Form from './app_componet/form.component';
@@ -18,6 +18,7 @@ class App extends React.Component{
       celsius: undefined,
       temp_max: undefined,
       temp_mean: undefined,
+      humidity: undefined,
       description: "",
       error: false
     };
@@ -85,6 +86,7 @@ class App extends React.Component{
         celsius: this.calCelsius(response.main.temp),
         temp_max: this.calCelsius(response.main.temp_max),
         temp_min: this.calCelsius(response.main.temp_min),
+        humidity: response.main.humidity,
         description: response.weather[0].description,
         error: false
       });
@@ -102,13 +104,15 @@ class App extends React.Component{
     return (
       <div className="App">
         <Form loadweather={this.getWeather} error={this.state.error}/>
-        <Weather city={this.state.city}
-        country={this.state.country}
-        temp_celsius={this.state.celsius}
-        temp_max={this.state.temp_max}
-        temp_min={this.state.temp_min}
-        description={this.state.description}
-        weatherIcon={this.state.icon}
+        <Weather 
+          city={this.state.city}
+          country={this.state.country}
+          temp_celsius={this.state.celsius}
+          temp_max={this.state.temp_max}
+          temp_min={this.state.temp_min}
+          humidity={this.state.humidity}
+          description={this.state.description}
+          weatherIcon={this.state.icon}
         />
       </div>
     );
