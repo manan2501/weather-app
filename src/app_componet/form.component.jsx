@@ -34,7 +34,7 @@ const Form = props => {
     );
 };
 
-function error(){
+const error = () => {
     return(
         <div className="alert alert-danger mx-5" role="alert">
             Please enter City and Country

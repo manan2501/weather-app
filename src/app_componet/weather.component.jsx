@@ -19,7 +19,7 @@ const Weather = (props) => {
     );
 }
 
-function minmaxTemp(min, max){
+const minmaxTemp = (min, max) => {
     if (min && max ){
         return(
             <h3>
